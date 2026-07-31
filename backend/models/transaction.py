@@ -11,10 +11,6 @@ class Transaction(db.Model):
             "amount > 0",
             name="ck_transactions_amount_positive"
         ),
-        db.CheckConstraint(
-            "transaction_type IN ('income', 'expense')",
-            name="ck_transactions_type"
-        ),
     )
 
     id = db.Column(
@@ -24,7 +20,20 @@ class Transaction(db.Model):
 
     user_id = db.Column(
         db.Integer,
-        db.ForeignKey("users.id", ondelete="CASCADE"),
+        db.ForeignKey(
+            "users.id",
+            ondelete="CASCADE"
+        ),
+        nullable=False,
+        index=True
+    )
+
+    category_id = db.Column(
+        db.Integer,
+        db.ForeignKey(
+            "categories.id",
+            ondelete="RESTRICT"
+        ),
         nullable=False,
         index=True
     )
@@ -32,17 +41,6 @@ class Transaction(db.Model):
     amount = db.Column(
         db.Numeric(12, 2),
         nullable=False
-    )
-
-    transaction_type = db.Column(
-        db.String(10),
-        nullable=False
-    )
-
-    category = db.Column(
-        db.String(80),
-        nullable=False,
-        index=True
     )
 
     description = db.Column(
@@ -84,17 +82,36 @@ class Transaction(db.Model):
         back_populates="transactions"
     )
 
+    category = db.relationship(
+        "Category",
+        back_populates="transactions"
+    )
+
     def to_dict(self):
         return {
             "id": self.id,
             "user_id": self.user_id,
+            "category_id": self.category_id,
             "amount": format(self.amount, ".2f"),
-            "type": self.transaction_type,
-            "category": self.category,
+            "type": (
+                self.category.category_type
+                if self.category else None
+            ),
+            "category": (
+                {
+                    "id": self.category.id,
+                    "name": self.category.name,
+                    "type": self.category.category_type
+                }
+                if self.category else None
+            ),
             "description": self.description,
             "merchant": self.merchant,
             "payment_method": self.payment_method,
-            "transaction_date": self.transaction_date.isoformat(),
+            "transaction_date": (
+                self.transaction_date.isoformat()
+                if self.transaction_date else None
+            ),
             "created_at": (
                 self.created_at.isoformat()
                 if self.created_at else None

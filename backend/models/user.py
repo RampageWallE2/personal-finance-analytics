@@ -36,6 +36,13 @@ class User(db.Model):
         passive_deletes=True
     )
 
+    categories = db.relationship(
+        "Category",
+        back_populates="user",
+        cascade="all, delete-orphan",
+        passive_deletes=True
+    )
+
     def to_dict(self):
                                                                                                                  
         return {

@@ -18,7 +18,7 @@ def get_current_user_id():
     return int(get_jwt_identity())
 
 
-@transactions_bp.route("/", methods=["POST"], strict_slashes=False)
+@transactions_bp.route("/",methods=["POST"],strict_slashes=False)
 @jwt_required()
 def create_transaction():
     user_id = get_current_user_id()
@@ -32,14 +32,14 @@ def create_transaction():
     return jsonify(response), status
 
 
-@transactions_bp.route("/", methods=["GET"], strict_slashes=False)
+@transactions_bp.route("/",methods=["GET"],strict_slashes=False)
 @jwt_required()
 def get_transactions():
     user_id = get_current_user_id()
 
     filters = {
         "type": request.args.get("type"),
-        "category": request.args.get("category"),
+        "category_id": request.args.get("category_id"),
         "start_date": request.args.get("start_date"),
         "end_date": request.args.get("end_date")
     }
@@ -52,7 +52,7 @@ def get_transactions():
     return jsonify(response), status
 
 
-@transactions_bp.route("/<int:transaction_id>", methods=["GET"])
+@transactions_bp.route("/<int:transaction_id>",methods=["GET"])
 @jwt_required()
 def get_transaction(transaction_id):
     user_id = get_current_user_id()
@@ -65,7 +65,7 @@ def get_transaction(transaction_id):
     return jsonify(response), status
 
 
-@transactions_bp.route("/<int:transaction_id>", methods=["PUT", "PATCH"])
+@transactions_bp.route("/<int:transaction_id>",methods=["PUT", "PATCH"])
 @jwt_required()
 def update_transaction(transaction_id):
     user_id = get_current_user_id()
@@ -80,7 +80,7 @@ def update_transaction(transaction_id):
     return jsonify(response), status
 
 
-@transactions_bp.route("/<int:transaction_id>", methods=["DELETE"])
+@transactions_bp.route("/<int:transaction_id>",methods=["DELETE"])
 @jwt_required()
 def delete_transaction(transaction_id):
     user_id = get_current_user_id()
