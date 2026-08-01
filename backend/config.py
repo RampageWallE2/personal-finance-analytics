@@ -19,5 +19,5 @@ class Config:
         )
 
         JWT_ACCESS_TOKEN_EXPIRES = timedelta(
-                minutes=int(os.getenv("JWT_ACCESS_TOKEN_MINUTES", "5"))
+                minutes=int(os.getenv("JWT_ACCESS_TOKEN_MINUTES"))
         )

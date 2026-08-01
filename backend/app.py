@@ -6,6 +6,7 @@ from extensions import db, bcrypt, migrate, jwt
 from routes.auth import auth_bp
 from routes.transactions import transactions_bp
 from routes.categories import categories_bp
+from routes.summary import summary_bp
 
 # Importar modelos
 from models.user import User
@@ -24,6 +25,7 @@ jwt.init_app(app)
 app.register_blueprint(auth_bp)
 app.register_blueprint(transactions_bp)
 app.register_blueprint(categories_bp)
+app.register_blueprint(summary_bp)
 
 
 @app.route("/", methods=["GET"])
