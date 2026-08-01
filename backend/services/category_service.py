@@ -10,6 +10,69 @@ class CategoryService:
 
     VALID_TYPES = {"income", "expense"}
 
+    DEFAULT_CATEGORIES = {
+        "expense": [
+            "Alimentación",
+            "Transporte",
+            "Vivienda",
+            "Servicios",
+            "Salud",
+            "Educación",
+            "Entretenimiento",
+            "Compras",
+            "Otros gastos"
+        ],
+        "income": [
+            "Salario",
+            "Trabajo independiente",
+            "Ventas",
+            "Bonificaciones",
+            "Regalos",
+            "Otros ingresos"
+        ]
+    }
+
+    @staticmethod
+    def create_default_categories(user_id):
+        existing_categories = Category.query.filter_by(
+            user_id=user_id
+        ).all()
+
+        existing_keys = {
+            (
+                category.name.strip().lower(),
+                category.category_type
+            )
+            for category in existing_categories
+        }
+
+        new_categories = []
+
+        for category_type, category_names in (
+            CategoryService.DEFAULT_CATEGORIES.items()
+        ):
+            for name in category_names:
+                category_key = (
+                    name.strip().lower(),
+                    category_type
+                )
+
+                if category_key in existing_keys:
+                    continue
+
+                new_categories.append(
+                    Category(
+                        user_id=user_id,
+                        name=name,
+                        category_type=category_type
+                    )
+                )
+
+        if new_categories:
+            db.session.add_all(new_categories)
+
+        return new_categories
+
     @staticmethod
     def _normalize_name(value):
         if not isinstance(value, str):

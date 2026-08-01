@@ -1,6 +1,7 @@
 from flask import Flask, jsonify
 from config import Config
 from extensions import db, bcrypt, migrate, jwt
+from flask_cors import CORS
 
 # Importar rutas
 from routes.auth import auth_bp
@@ -14,6 +15,16 @@ from models.transaction import Transaction
 from models.category import Category
 
 app = Flask(__name__)
+
+CORS(
+    app,
+    resources={
+        r"/auth/*" : {
+            "origins" : "http://localhost:4200",
+        }
+    }
+)
+
 
 app.config.from_object(Config)
 

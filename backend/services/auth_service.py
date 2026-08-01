@@ -1,6 +1,8 @@
 from flask_jwt_extended import create_access_token
+from services.category_service import CategoryService
 from extensions import db, bcrypt
 from models.user import User
+from sqlalchemy.exc import IntegrityError, SQLAlchemyError 
 
 class AuthService:
 
@@ -33,9 +35,33 @@ class AuthService:
             password=hashed_password
         )
 
-        db.session.add(user)
-        db.session.commit()
 
+        try:
+            db.session.add(user)
+            db.session.flush()
+
+            categories = (
+                CategoryService.create_default_categories(
+                    user_id=user.id
+                )
+            )
+
+            db.session.commit()
+
+        except IntegrityError:
+            db.session.rollback()
+
+            return {
+                "message": "El usuario ya existe"
+            }, 409
+
+        except SQLAlchemyError:
+            db.session.rollback()
+
+            return {
+                "message": "No se pudo registrar el usuario"
+            }, 500
+        
         return {
             "message": "Usuario registrado correctamente",
             "user": user.to_dict()
