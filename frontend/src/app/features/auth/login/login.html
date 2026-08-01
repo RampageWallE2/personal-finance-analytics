@@ -1,0 +1,165 @@
+<main class="login-page">
+  <section class="login-introduction">
+    <div class="brand">
+      <mat-icon aria-hidden="true">account_balance_wallet</mat-icon>
+      <span>Personal Finance Analytics</span>
+    </div>
+
+    <div class="introduction-content">
+      <p class="eyebrow">Bienvenido nuevamente</p>
+
+      <h1>Continúa mejorando tus finanzas</h1>
+
+      <p class="description">
+        Accede a tu cuenta para revisar tus ingresos, controlar tus gastos y
+        continuar trabajando en tus objetivos financieros.
+      </p>
+
+      <ul class="benefits">
+        <li>
+          <mat-icon aria-hidden="true">check_circle</mat-icon>
+          <span>Consulta tu balance actualizado</span>
+        </li>
+
+        <li>
+          <mat-icon aria-hidden="true">check_circle</mat-icon>
+          <span>Analiza tus movimientos financieros</span>
+        </li>
+
+        <li>
+          <mat-icon aria-hidden="true">check_circle</mat-icon>
+          <span>Supervisa tus presupuestos y objetivos</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="login-section">
+    <mat-card class="login-card">
+      <mat-card-header>
+        <mat-card-title>Iniciar sesión</mat-card-title>
+
+        <mat-card-subtitle>
+          Ingresa tus datos para acceder a tu cuenta
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <form
+          class="login-form"
+          [formGroup]="loginForm"
+          (ngSubmit)="onSubmit()"
+          novalidate
+        >
+          <mat-form-field appearance="outline">
+            <mat-label>Correo electrónico</mat-label>
+
+            <input
+              matInput
+              type="email"
+              formControlName="email"
+              autocomplete="email"
+              placeholder="nombre@correo.com"
+            />
+
+            <mat-icon matPrefix aria-hidden="true">
+              email
+            </mat-icon>
+
+            @if (email.touched && email.hasError('required')) {
+              <mat-error>
+                El correo electrónico es obligatorio.
+              </mat-error>
+            }
+
+            @if (email.touched && email.hasError('email')) {
+              <mat-error>
+                Ingresa un correo electrónico válido.
+              </mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Contraseña</mat-label>
+
+            <input
+              matInput
+              [type]="hidePassword ? 'password' : 'text'"
+              formControlName="password"
+              autocomplete="current-password"
+            />
+
+            <mat-icon matPrefix aria-hidden="true">
+              lock
+            </mat-icon>
+
+            <button
+              mat-icon-button
+              matSuffix
+              type="button"
+              [attr.aria-label]="
+                hidePassword
+                  ? 'Mostrar contraseña'
+                  : 'Ocultar contraseña'
+              "
+              (click)="hidePassword = !hidePassword"
+            >
+              <mat-icon>
+                {{ hidePassword ? 'visibility' : 'visibility_off' }}
+              </mat-icon>
+            </button>
+
+            @if (password.touched && password.hasError('required')) {
+              <mat-error>
+                La contraseña es obligatoria.
+              </mat-error>
+            }
+          </mat-form-field>
+
+            <div class="form-options">
+            <mat-checkbox formControlName="rememberMe">
+                Recordarme
+            </mat-checkbox>
+
+            <span class="forgot-password">
+                ¿Olvidaste tu contraseña?
+            </span>
+            </div>
+
+            @if (errorMessage) {
+            <div
+                class="form-message error-message"
+                role="alert"
+            >
+                <mat-icon aria-hidden="true">
+                error
+                </mat-icon>
+
+                <span>{{ errorMessage }}</span>
+            </div>
+            }
+
+            <button
+                mat-flat-button
+                class="submit-button"
+                type="submit"
+                [disabled]="isSubmitting"
+            >
+                @if (isSubmitting) {
+                    Iniciando sesión...
+                } @else {
+                    Iniciar sesión
+                }
+            </button>
+        </form>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <p>
+          ¿Todavía no tienes una cuenta?
+          <a routerLink="/register">Crear cuenta</a>
+        </p>
+      </mat-card-actions>
+    </mat-card>
+  </section>
+</main>

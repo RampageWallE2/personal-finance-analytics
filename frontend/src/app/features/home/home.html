@@ -1,0 +1,292 @@
+<main class="home-page">
+  <header class="main-header">
+    <a class="brand" routerLink="/">
+      <mat-icon aria-hidden="true">
+        account_balance_wallet
+      </mat-icon>
+
+      <span>Personal Finance Analytics</span>
+    </a>
+
+    <nav class="main-navigation" aria-label="Navegación principal">
+      <a class="navigation-link" routerLink="/">
+        Inicio
+      </a>
+
+      <a
+        mat-button
+        routerLink="/login"
+      >
+        Iniciar sesión
+      </a>
+
+      <a
+        mat-flat-button
+        routerLink="/register"
+      >
+        Crear cuenta
+      </a>
+    </nav>
+  </header>
+
+  <section class="hero-section">
+    <div class="hero-content">
+      <p class="eyebrow">
+        Control financiero personal
+      </p>
+
+      <h1>
+        Entiende tu dinero y toma mejores decisiones
+      </h1>
+
+      <p class="hero-description">
+        Registra tus ingresos y gastos, revisa tu balance y descubre cómo
+        mejorar tus hábitos financieros desde un solo lugar.
+      </p>
+
+      <div class="hero-actions">
+        <a
+          mat-flat-button
+          class="primary-action"
+          routerLink="/register"
+        >
+          Crear cuenta gratis
+          <mat-icon iconPositionEnd aria-hidden="true">
+            arrow_forward
+          </mat-icon>
+        </a>
+
+        <a
+          mat-button
+          class="secondary-action"
+          routerLink="/login"
+        >
+          Ya tengo una cuenta
+        </a>
+      </div>
+
+      <div class="hero-benefits">
+        <span>
+          <mat-icon aria-hidden="true">check_circle</mat-icon>
+          Fácil de utilizar
+        </span>
+
+        <span>
+          <mat-icon aria-hidden="true">check_circle</mat-icon>
+          Información organizada
+        </span>
+
+        <span>
+          <mat-icon aria-hidden="true">check_circle</mat-icon>
+          Decisiones más claras
+        </span>
+      </div>
+    </div>
+
+    <div class="dashboard-preview">
+      <mat-card class="preview-card">
+        <div class="preview-header">
+          <div>
+            <p>Balance disponible</p>
+            <h2>S/ 4,850.00</h2>
+          </div>
+
+          <div class="wallet-icon">
+            <mat-icon aria-hidden="true">
+              account_balance_wallet
+            </mat-icon>
+          </div>
+        </div>
+
+        <div class="summary-grid">
+          <article class="summary-item income">
+            <div class="summary-icon">
+              <mat-icon aria-hidden="true">
+                arrow_downward
+              </mat-icon>
+            </div>
+
+            <div>
+              <span>Ingresos</span>
+              <strong>S/ 3,500.00</strong>
+            </div>
+          </article>
+
+          <article class="summary-item expense">
+            <div class="summary-icon">
+              <mat-icon aria-hidden="true">
+                arrow_upward
+              </mat-icon>
+            </div>
+
+            <div>
+              <span>Gastos</span>
+              <strong>S/ 1,250.00</strong>
+            </div>
+          </article>
+        </div>
+
+        <div class="budget-section">
+          <div class="budget-heading">
+            <span>Presupuesto mensual</span>
+            <strong>65%</strong>
+          </div>
+
+          <div
+            class="progress-track"
+            role="progressbar"
+            aria-label="Presupuesto mensual utilizado"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="65"
+          >
+            <div class="progress-value"></div>
+          </div>
+
+          <p>
+            Has utilizado S/ 1,950 de tu presupuesto de S/ 3,000.
+          </p>
+        </div>
+
+        <div class="recent-movements">
+          <div class="movements-title">
+            <h3>Movimientos recientes</h3>
+            <span>Ver todos</span>
+          </div>
+
+          <article class="movement">
+            <div class="movement-icon">
+              <mat-icon aria-hidden="true">
+                shopping_cart
+              </mat-icon>
+            </div>
+
+            <div class="movement-information">
+              <strong>Supermercado</strong>
+              <span>Alimentación</span>
+            </div>
+
+            <strong class="movement-amount">
+              - S/ 85.40
+            </strong>
+          </article>
+
+          <article class="movement">
+            <div class="movement-icon">
+              <mat-icon aria-hidden="true">
+                payments
+              </mat-icon>
+            </div>
+
+            <div class="movement-information">
+              <strong>Salario</strong>
+              <span>Ingresos</span>
+            </div>
+
+            <strong class="movement-amount positive">
+              + S/ 1,500.00
+            </strong>
+          </article>
+        </div>
+      </mat-card>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <div class="section-heading">
+      <p class="eyebrow">Todo en un solo lugar</p>
+
+      <h2>Herramientas para organizar tus finanzas</h2>
+
+      <p>
+        Visualiza tu situación financiera de manera sencilla y mantén un mejor
+        control de tu dinero.
+      </p>
+    </div>
+
+    <div class="features-grid">
+      <mat-card class="feature-card">
+        <div class="feature-icon">
+          <mat-icon aria-hidden="true">
+            receipt_long
+          </mat-icon>
+        </div>
+
+        <mat-card-title>
+          Registra movimientos
+        </mat-card-title>
+
+        <mat-card-content>
+          Guarda tus ingresos y gastos para tener un historial ordenado de tus
+          operaciones.
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="feature-card">
+        <div class="feature-icon">
+          <mat-icon aria-hidden="true">
+            monitoring
+          </mat-icon>
+        </div>
+
+        <mat-card-title>
+          Analiza tus finanzas
+        </mat-card-title>
+
+        <mat-card-content>
+          Consulta resúmenes y gráficos para entender cómo utilizas tu dinero.
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="feature-card">
+        <div class="feature-icon">
+          <mat-icon aria-hidden="true">
+            savings
+          </mat-icon>
+        </div>
+
+        <mat-card-title>
+          Controla tu presupuesto
+        </mat-card-title>
+
+        <mat-card-content>
+          Define límites de gastos y supervisa cuánto dinero tienes disponible.
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+
+  <section class="call-to-action">
+    <div>
+      <h2>Empieza a organizar tus finanzas</h2>
+
+      <p>
+        Crea una cuenta y comienza a construir una mejor relación con tu dinero.
+      </p>
+    </div>
+
+    <a
+      mat-flat-button
+      routerLink="/register"
+    >
+      Comenzar ahora
+      <mat-icon iconPositionEnd aria-hidden="true">
+        arrow_forward
+      </mat-icon>
+    </a>
+  </section>
+
+  <footer class="main-footer">
+    <div class="footer-brand">
+      <mat-icon aria-hidden="true">
+        account_balance_wallet
+      </mat-icon>
+
+      <span>Personal Finance Analytics</span>
+    </div>
+
+    <p>
+      Proyecto de gestión y análisis de finanzas personales.
+    </p>
+  </footer>
+</main>

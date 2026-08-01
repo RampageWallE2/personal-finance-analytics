@@ -1,0 +1,675 @@
+<div class="dashboard-shell">
+  <aside class="sidebar">
+    <a class="brand" routerLink="/">
+      <div class="brand-icon">
+        <mat-icon aria-hidden="true">
+          account_balance_wallet
+        </mat-icon>
+      </div>
+
+      <span>Personal Finance</span>
+    </a>
+
+    <nav class="sidebar-navigation" aria-label="Navegación del dashboard">
+      <button
+        class="navigation-item active"
+        type="button"
+      >
+        <mat-icon aria-hidden="true">dashboard</mat-icon>
+        <span>Resumen</span>
+      </button>
+
+      <button
+        class="navigation-item"
+        type="button"
+      >
+        <mat-icon aria-hidden="true">swap_horiz</mat-icon>
+        <span>Movimientos</span>
+      </button>
+
+      <button
+        class="navigation-item"
+        type="button"
+      >
+        <mat-icon aria-hidden="true">account_balance</mat-icon>
+        <span>Cuentas</span>
+      </button>
+
+      <button
+        class="navigation-item"
+        type="button"
+      >
+        <mat-icon aria-hidden="true">pie_chart</mat-icon>
+        <span>Presupuestos</span>
+      </button>
+
+      <button
+        class="navigation-item"
+        type="button"
+      >
+        <mat-icon aria-hidden="true">flag</mat-icon>
+        <span>Objetivos</span>
+      </button>
+
+      <button
+        class="navigation-item"
+        type="button"
+      >
+        <mat-icon aria-hidden="true">monitoring</mat-icon>
+        <span>Reportes</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <button
+        class="navigation-item"
+        type="button"
+      >
+        <mat-icon aria-hidden="true">settings</mat-icon>
+        <span>Configuración</span>
+      </button>
+
+      <div class="user-card">
+        <div class="user-avatar">
+          PN
+        </div>
+
+        <div class="user-information">
+          <strong>Piero Noa</strong>
+          <span>Cuenta personal</span>
+        </div>
+
+        <button
+          mat-icon-button
+          type="button"
+          aria-label="Cerrar sesión"
+        >
+          <mat-icon>logout</mat-icon>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <section class="dashboard-content">
+    <header class="topbar">
+      <div>
+        <p class="page-label">Dashboard</p>
+        <h1>Resumen financiero</h1>
+      </div>
+
+      <div class="topbar-actions">
+        <button
+          mat-stroked-button
+          type="button"
+        >
+          <mat-icon>calendar_month</mat-icon>
+          Mes actual
+        </button>
+
+        <button
+          mat-flat-button
+          type="button"
+        >
+          <mat-icon>add</mat-icon>
+          Nuevo movimiento
+        </button>
+      </div>
+    </header>
+
+    <main class="dashboard-main">
+      <section class="welcome-section">
+        <div>
+          <p class="eyebrow">Bienvenido nuevamente</p>
+
+          <h2>Este es el estado de tus finanzas</h2>
+
+          <p>
+            Revisa tu balance, tus movimientos y el progreso de tus
+            presupuestos.
+          </p>
+        </div>
+
+        <div class="period-information">
+          <mat-icon aria-hidden="true">date_range</mat-icon>
+
+          <div>
+            <span>Periodo analizado</span>
+            <strong>Mes actual</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="summary-grid" aria-label="Resumen financiero">
+        <mat-card class="summary-card balance-card">
+          <div class="summary-card-header">
+            <div class="summary-icon balance-icon">
+              <mat-icon aria-hidden="true">
+                account_balance_wallet
+              </mat-icon>
+            </div>
+
+            <span class="status-badge positive">
+              +8.2%
+            </span>
+          </div>
+
+          <p>Balance disponible</p>
+          <h3>S/ 4,850.00</h3>
+
+          <div class="summary-comparison">
+            <mat-icon aria-hidden="true">trending_up</mat-icon>
+            <span>Mayor que el mes anterior</span>
+          </div>
+        </mat-card>
+
+        <mat-card class="summary-card">
+          <div class="summary-card-header">
+            <div class="summary-icon income-icon">
+              <mat-icon aria-hidden="true">
+                south_west
+              </mat-icon>
+            </div>
+
+            <span class="status-badge positive">
+              +5.4%
+            </span>
+          </div>
+
+          <p>Ingresos del mes</p>
+          <h3>S/ 3,500.00</h3>
+
+          <div class="summary-comparison">
+            <mat-icon aria-hidden="true">trending_up</mat-icon>
+            <span>S/ 180 más que el mes anterior</span>
+          </div>
+        </mat-card>
+
+        <mat-card class="summary-card">
+          <div class="summary-card-header">
+            <div class="summary-icon expense-icon">
+              <mat-icon aria-hidden="true">
+                north_east
+              </mat-icon>
+            </div>
+
+            <span class="status-badge negative">
+              +3.1%
+            </span>
+          </div>
+
+          <p>Gastos del mes</p>
+          <h3>S/ 1,250.00</h3>
+
+          <div class="summary-comparison negative-text">
+            <mat-icon aria-hidden="true">trending_up</mat-icon>
+            <span>S/ 40 más que el mes anterior</span>
+          </div>
+        </mat-card>
+
+        <mat-card class="summary-card">
+          <div class="summary-card-header">
+            <div class="summary-icon saving-icon">
+              <mat-icon aria-hidden="true">
+                savings
+              </mat-icon>
+            </div>
+
+            <span class="status-badge positive">
+              64%
+            </span>
+          </div>
+
+          <p>Ahorro del mes</p>
+          <h3>S/ 2,250.00</h3>
+
+          <div class="summary-comparison">
+            <mat-icon aria-hidden="true">verified</mat-icon>
+            <span>Objetivo mensual cumplido</span>
+          </div>
+        </mat-card>
+      </section>
+
+      <section class="analytics-grid">
+        <mat-card class="chart-card">
+          <div class="card-heading">
+            <div>
+              <h3>Flujo de dinero</h3>
+              <p>Comparación de ingresos y gastos</p>
+            </div>
+
+            <button
+              mat-icon-button
+              type="button"
+              aria-label="Más opciones"
+            >
+              <mat-icon>more_horiz</mat-icon>
+            </button>
+          </div>
+
+          <div class="chart-legend">
+            <span>
+              <i class="legend-dot income-dot"></i>
+              Ingresos
+            </span>
+
+            <span>
+              <i class="legend-dot expense-dot"></i>
+              Gastos
+            </span>
+          </div>
+
+          <div
+            class="bar-chart"
+            role="img"
+            aria-label="Gráfico de ingresos y gastos de los últimos seis meses"
+          >
+            <div class="chart-column">
+              <div class="bars">
+                <div
+                  class="bar income-bar"
+                  style="height: 58%"
+                  title="Ingresos: S/ 2,900"
+                ></div>
+
+                <div
+                  class="bar expense-bar"
+                  style="height: 38%"
+                  title="Gastos: S/ 1,900"
+                ></div>
+              </div>
+
+              <span>Mar</span>
+            </div>
+
+            <div class="chart-column">
+              <div class="bars">
+                <div
+                  class="bar income-bar"
+                  style="height: 72%"
+                  title="Ingresos: S/ 3,600"
+                ></div>
+
+                <div
+                  class="bar expense-bar"
+                  style="height: 44%"
+                  title="Gastos: S/ 2,200"
+                ></div>
+              </div>
+
+              <span>Abr</span>
+            </div>
+
+            <div class="chart-column">
+              <div class="bars">
+                <div
+                  class="bar income-bar"
+                  style="height: 65%"
+                  title="Ingresos: S/ 3,250"
+                ></div>
+
+                <div
+                  class="bar expense-bar"
+                  style="height: 49%"
+                  title="Gastos: S/ 2,450"
+                ></div>
+              </div>
+
+              <span>May</span>
+            </div>
+
+            <div class="chart-column">
+              <div class="bars">
+                <div
+                  class="bar income-bar"
+                  style="height: 82%"
+                  title="Ingresos: S/ 4,100"
+                ></div>
+
+                <div
+                  class="bar expense-bar"
+                  style="height: 42%"
+                  title="Gastos: S/ 2,100"
+                ></div>
+              </div>
+
+              <span>Jun</span>
+            </div>
+
+            <div class="chart-column">
+              <div class="bars">
+                <div
+                  class="bar income-bar"
+                  style="height: 68%"
+                  title="Ingresos: S/ 3,400"
+                ></div>
+
+                <div
+                  class="bar expense-bar"
+                  style="height: 51%"
+                  title="Gastos: S/ 2,550"
+                ></div>
+              </div>
+
+              <span>Jul</span>
+            </div>
+
+            <div class="chart-column">
+              <div class="bars">
+                <div
+                  class="bar income-bar"
+                  style="height: 76%"
+                  title="Ingresos: S/ 3,800"
+                ></div>
+
+                <div
+                  class="bar expense-bar"
+                  style="height: 35%"
+                  title="Gastos: S/ 1,750"
+                ></div>
+              </div>
+
+              <span>Actual</span>
+            </div>
+          </div>
+        </mat-card>
+
+        <mat-card class="budget-card">
+          <div class="card-heading">
+            <div>
+              <h3>Presupuesto mensual</h3>
+              <p>Gastos por categoría</p>
+            </div>
+
+            <button
+              mat-icon-button
+              type="button"
+              aria-label="Más opciones"
+            >
+              <mat-icon>more_horiz</mat-icon>
+            </button>
+          </div>
+
+          <div class="budget-summary">
+            <div>
+              <span>Gastado</span>
+              <strong>S/ 1,250.00</strong>
+            </div>
+
+            <div>
+              <span>Presupuesto</span>
+              <strong>S/ 2,500.00</strong>
+            </div>
+          </div>
+
+          <div class="general-progress">
+            <div class="general-progress-value"></div>
+          </div>
+
+          <p class="remaining-budget">
+            Te quedan S/ 1,250.00 disponibles
+          </p>
+
+          <div class="category-list">
+            <article class="category-item">
+              <div class="category-heading">
+                <div>
+                  <span class="category-icon food-category">
+                    <mat-icon aria-hidden="true">
+                      restaurant
+                    </mat-icon>
+                  </span>
+
+                  <span>Alimentación</span>
+                </div>
+
+                <strong>S/ 520</strong>
+              </div>
+
+              <div class="category-progress">
+                <div
+                  class="category-progress-value food-progress"
+                  style="width: 74%"
+                ></div>
+              </div>
+            </article>
+
+            <article class="category-item">
+              <div class="category-heading">
+                <div>
+                  <span class="category-icon transport-category">
+                    <mat-icon aria-hidden="true">
+                      directions_bus
+                    </mat-icon>
+                  </span>
+
+                  <span>Transporte</span>
+                </div>
+
+                <strong>S/ 260</strong>
+              </div>
+
+              <div class="category-progress">
+                <div
+                  class="category-progress-value transport-progress"
+                  style="width: 52%"
+                ></div>
+              </div>
+            </article>
+
+            <article class="category-item">
+              <div class="category-heading">
+                <div>
+                  <span class="category-icon entertainment-category">
+                    <mat-icon aria-hidden="true">
+                      sports_esports
+                    </mat-icon>
+                  </span>
+
+                  <span>Entretenimiento</span>
+                </div>
+
+                <strong>S/ 180</strong>
+              </div>
+
+              <div class="category-progress">
+                <div
+                  class="category-progress-value entertainment-progress"
+                  style="width: 45%"
+                ></div>
+              </div>
+            </article>
+
+            <article class="category-item">
+              <div class="category-heading">
+                <div>
+                  <span class="category-icon service-category">
+                    <mat-icon aria-hidden="true">
+                      lightbulb
+                    </mat-icon>
+                  </span>
+
+                  <span>Servicios</span>
+                </div>
+
+                <strong>S/ 290</strong>
+              </div>
+
+              <div class="category-progress">
+                <div
+                  class="category-progress-value service-progress"
+                  style="width: 58%"
+                ></div>
+              </div>
+            </article>
+          </div>
+        </mat-card>
+      </section>
+
+      <section class="details-grid">
+        <mat-card class="transactions-card">
+          <div class="card-heading">
+            <div>
+              <h3>Movimientos recientes</h3>
+              <p>Últimas operaciones registradas</p>
+            </div>
+
+            <button
+              mat-button
+              type="button"
+            >
+              Ver todos
+            </button>
+          </div>
+
+          <div class="transactions-list">
+            <article class="transaction-item">
+              <div class="transaction-icon shopping-icon">
+                <mat-icon aria-hidden="true">
+                  shopping_cart
+                </mat-icon>
+              </div>
+
+              <div class="transaction-information">
+                <strong>Supermercado</strong>
+                <span>Alimentación · Hoy</span>
+              </div>
+
+              <strong class="transaction-amount expense-amount">
+                - S/ 85.40
+              </strong>
+            </article>
+
+            <article class="transaction-item">
+              <div class="transaction-icon salary-icon">
+                <mat-icon aria-hidden="true">
+                  payments
+                </mat-icon>
+              </div>
+
+              <div class="transaction-information">
+                <strong>Salario mensual</strong>
+                <span>Ingresos · Ayer</span>
+              </div>
+
+              <strong class="transaction-amount income-amount">
+                + S/ 1,500.00
+              </strong>
+            </article>
+
+            <article class="transaction-item">
+              <div class="transaction-icon transport-icon">
+                <mat-icon aria-hidden="true">
+                  directions_bus
+                </mat-icon>
+              </div>
+
+              <div class="transaction-information">
+                <strong>Transporte</strong>
+                <span>Movilidad · 30 de julio</span>
+              </div>
+
+              <strong class="transaction-amount expense-amount">
+                - S/ 12.00
+              </strong>
+            </article>
+
+            <article class="transaction-item">
+              <div class="transaction-icon service-icon">
+                <mat-icon aria-hidden="true">
+                  wifi
+                </mat-icon>
+              </div>
+
+              <div class="transaction-information">
+                <strong>Internet</strong>
+                <span>Servicios · 28 de julio</span>
+              </div>
+
+              <strong class="transaction-amount expense-amount">
+                - S/ 89.90
+              </strong>
+            </article>
+          </div>
+        </mat-card>
+
+        <mat-card class="goals-card">
+          <div class="card-heading">
+            <div>
+              <h3>Objetivos de ahorro</h3>
+              <p>Progreso de tus metas</p>
+            </div>
+
+            <button
+              mat-icon-button
+              type="button"
+              aria-label="Agregar objetivo"
+            >
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+
+          <article class="goal-item">
+            <div class="goal-heading">
+              <div class="goal-icon laptop-goal">
+                <mat-icon aria-hidden="true">
+                  laptop
+                </mat-icon>
+              </div>
+
+              <div>
+                <strong>Nueva computadora</strong>
+                <span>S/ 2,100 de S/ 4,000</span>
+              </div>
+
+              <strong class="goal-percentage">
+                53%
+              </strong>
+            </div>
+
+            <div class="goal-progress">
+              <div
+                class="goal-progress-value"
+                style="width: 53%"
+              ></div>
+            </div>
+          </article>
+
+          <article class="goal-item">
+            <div class="goal-heading">
+              <div class="goal-icon travel-goal">
+                <mat-icon aria-hidden="true">
+                  flight
+                </mat-icon>
+              </div>
+
+              <div>
+                <strong>Viaje</strong>
+                <span>S/ 800 de S/ 3,000</span>
+              </div>
+
+              <strong class="goal-percentage">
+                27%
+              </strong>
+            </div>
+
+            <div class="goal-progress">
+              <div
+                class="goal-progress-value travel-progress"
+                style="width: 27%"
+              ></div>
+            </div>
+          </article>
+
+          <button
+            mat-stroked-button
+            class="new-goal-button"
+            type="button"
+          >
+            <mat-icon>add</mat-icon>
+            Crear nuevo objetivo
+          </button>
+        </mat-card>
+      </section>
+    </main>
+  </section>
+</div>
